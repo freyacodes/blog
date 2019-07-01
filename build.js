@@ -6,12 +6,13 @@ const cheerio = require("cheerio");
 const buildDir = "./build/";
 const buildDocsDir = "./build/docs/";
 const templateBase = "./templates/base.html";
+const staticDir = "./static/";
 const sassFile = "./templates/style.sass";
 const docsDir = "./docs/";
 const baseSrc = fs.readFileSync(templateBase);
 
 fs.removeSync(buildDir);
-fs.mkdirSync(buildDir);
+fs.copySync(staticDir, buildDir);
 fs.mkdirSync(buildDocsDir);
 
 writeStyle();

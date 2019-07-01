@@ -1,5 +1,6 @@
 @import "../node_modules/normalize.css/normalize.css"
-$maxPageWith: calc(200px + 50em)
+$sidebarWidth: 250px
+$maxPageWith: calc(250px + 50em)
 $headerFamily: 'Roboto Slab', sans-serif
 
 body
@@ -32,9 +33,24 @@ header
     section
       height: 100%
 .sidebar
-  width: 200px
-  *
-    margin-left: 8px
+  width: 250px
+  margin-top: 36px
+  p
+    margin: 8px
+    font-size: 14px
+  a
+    font-size: 14px
+  img
+    width: 148px
+    height: 174px
+    margin: 32px 0 8px 26px
+    border: solid #2A7BC5 6px
+    border-radius: 6px
+  .separator
+    height: 1px
+    margin: 8px 20px 8px 8px
+    background-color: #333
+
 .content
   min-width: 40em
   width: 50em
