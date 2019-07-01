@@ -1,16 +1,18 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const sass = require('node-sass');
 const marked = require('marked');
 const cheerio = require("cheerio");
 
 const buildDir = "./build/";
+const buildDocsDir = "./build/docs/";
 const templateBase = "./templates/base.html";
 const sassFile = "./templates/style.sass";
 const docsDir = "./docs/";
 const baseSrc = fs.readFileSync(templateBase);
 
-if (!fs.existsSync(buildDir)) fs.mkdirSync(buildDir);
-fs.readdirSync(buildDir).forEach(p => fs.unlinkSync(buildDir + p));
+fs.removeSync(buildDir);
+fs.mkdirSync(buildDir);
+fs.mkdirSync(buildDocsDir);
 
 writeStyle();
 writeDocs();
@@ -32,7 +34,7 @@ function writeDoc(name) {
     const raw = fs.readFileSync(docsDir + name, {encoding: "UTF-8"});
     const content = marked(raw);
     const $ = cheerio.load(baseSrc);
-    const newPath = buildDir + name.replace(".md", ".html");
+    const newPath = buildDocsDir + name.replace(".md", ".html");
     $("#page-content").html(content);
     fs.writeFileSync(newPath, $.html())
 }
