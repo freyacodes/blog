@@ -31,8 +31,10 @@ function writeStyle() {
         file: sassFile
     });
 
+    fs.copySync("node_modules/normalize.css/normalize.css", buildDir + "normalize.css");
     fs.writeFileSync(buildDir + "style.css", styleResult.css);
     console.log("Compiled CSS")
+
 }
 
 function writeDocs() {
