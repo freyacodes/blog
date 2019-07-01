@@ -1,4 +1,5 @@
 @import "../node_modules/normalize.css/normalize.css"
+$breakLarge: 1100px
 $sidebarWidth: 250px
 $maxPageWith: calc(250px + 50em)
 $headerFamily: 'Roboto Slab', sans-serif
@@ -35,6 +36,8 @@ header
 .sidebar
   width: 250px
   margin-top: 36px
+  @media screen and (max-width: $breakLarge)
+    display: none
   p
     margin: 8px
     font-size: 14px
@@ -56,11 +59,15 @@ header
   width: 50em
   background-color: #eee
   min-height: 85vh
+  @media screen and (max-width: $breakLarge)
+    width: 100vw
+    min-width: unset
 
   // Actual content
-  *
+  h1,h2,h3,h4,h5,p,pre
     margin-left: 16px
     margin-right: 16px
+  p,pre
     text-align: justify
   #byline
     font-weight: bold
