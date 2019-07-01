@@ -20,12 +20,17 @@ p, a
   margin: 8px 0 8px 0
   font-size: 18px
 header
+  display: block
+  background-color: #eee
+  width: $sidebarWidth
+  @media screen and (max-width: $breakLarge)
+    margin-bottom: 8px
   a
     display: block
-    margin: 20px 8px 20px -4px
-    width: 7em
+    width: calc(100% - 16px)
     text-align: center
     padding: 8px
+    margin: 0
     font-family: $headerFamily
     font-size: 32px
     color: #000
@@ -53,7 +58,7 @@ header
   img
     width: 148px
     height: 174px
-    margin: 32px 0 8px 36px
+    margin: 32px 0 8px 44px
     border: solid #2A7BC5 6px
     border-radius: 6px
   .separator
