@@ -94,8 +94,8 @@ function writeIndex() {
     // Sort the articles chronologically
     docs.sort((a, b) => {
         if (a.time == null && b.time == null) return 0;
-        else if (a.time == null) return -1;
-        else if (b.time == null) return 1;
+        else if (a.time == null) return 1;
+        else if (b.time == null) return -1;
         else return a.time.getMilliseconds() - b.time.getMilliseconds()
     });
 
