@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2019 Frederik Ar. Mikkelsen
+ * Licensed under MIT. See https://github.com/Frederikam/blog/blob/master/LICENSE
+ */
+
 const fs = require('fs-extra');
 const sass = require('node-sass');
 const marked = require('marked');
