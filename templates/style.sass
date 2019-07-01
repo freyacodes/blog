@@ -1,11 +1,27 @@
 @import "../node_modules/normalize.css/normalize.css"
 $maxPageWith: calc(200px + 50em)
+$headerFamily: 'Roboto Slab', sans-serif
 
+body
+  font-family: sans-serif
+h1
+  font-size: 30px
+h1, h2, h3, h4, h5
+  font-family: $headerFamily
+  margin: 16px 0 8px 0
+h4
+  font-size: 20px
+h5
+  font-size: 20px
+  font-weight: normal
+p, a
+  margin: 8px 0 8px 0
+  font-size: 18px
 header
+  font-family: $headerFamily
   font-size: 32px
   margin: 32px 16px 16px 8px
 .column
-  background-color: #fbfff0
   margin: 0 auto 0 auto
   max-width: $maxPageWith
   .inner-column
@@ -17,11 +33,16 @@ header
       height: 100%
 .sidebar
   width: 200px
-  background-color: red
   *
     margin-left: 8px
 .content
   min-width: 40em
   width: 50em
-  background-color: green
+  background-color: #eee
   min-height: 85vh
+
+  // Actual content
+  *
+    margin-left: 16px
+    margin-right: 16px
+    text-align: justify
