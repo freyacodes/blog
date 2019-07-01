@@ -11,6 +11,7 @@ const staticDir = "./static/";
 const sassFile = "./templates/style.sass";
 const docsDir = "./docs/";
 const baseSrc = fs.readFileSync(templateBase);
+const docs = [];
 
 fs.removeSync(buildDir);
 fs.copySync(staticDir, buildDir);
@@ -42,6 +43,7 @@ function writeDoc(name) {
 
     $("#page-content").html(content);
     const properties = consumeProperties($, htmlName);
+    docs.push(properties);
     injectByline($, properties);
     fs.writeFileSync(newPath, $.html());
 
@@ -89,6 +91,25 @@ function injectByline($, properties) {
 }
 
 function writeIndex() {
-    fs.writeFileSync(buildDir + "index.html", baseSrc);
+    // Sort the articles chronologically
+    docs.sort((a, b) => {
+        if (a.time == null && b.time == null) return 0;
+        else if (a.time == null) return -1;
+        else if (b.time == null) return 1;
+        else return a.time.getMilliseconds() - b.time.getMilliseconds()
+    });
+
+    const $ = cheerio.load(baseSrc);
+    const contentRoot = $("#page-content");
+    contentRoot.append('<h1>Index</h1>');
+    contentRoot.append('<p>The latest articles:</p>');
+
+    docs.forEach(props => {
+        const dateStr = luxon.DateTime.fromJSDate(props.time).toFormat("dd LLL yyyy");
+        contentRoot.append(`<p><code>${dateStr}</code> &mdash; <a href="/docs/${props.relPath}">${props.title}</a></p>`)
+    });
+
+
+    fs.writeFileSync(buildDir + "index.html", $.html());
     console.log("Wrote index");
 }
