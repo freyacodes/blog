@@ -50,6 +50,7 @@ function writeDoc(name) {
 
     $("#page-content").html(content);
     const properties = consumeProperties($, htmlName);
+    $("title").html(properties.title);
     docs.push(properties);
     injectByline($, properties);
     fs.writeFileSync(newPath, $.html());
