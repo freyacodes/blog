@@ -25,7 +25,7 @@ h4
 h5
   font-size: 20px
   font-weight: normal
-p, a
+p, a, table
   margin: 8px 0 8px 0
   font-size: 18px
 header
@@ -57,13 +57,11 @@ header
 .sidebar
   width: 250px
   margin-top: 64px
+  font-size: 14px
   @media screen and (max-width: $breakLarge)
     display: none
   p
     margin: 8px
-    font-size: 14px
-  a
-    font-size: 14px
   img
     width: 148px
     height: 174px
@@ -87,10 +85,10 @@ header
     min-width: unset
 
   // Actual content
-  h1,h2,h3,h4,h5,p,pre
+  h1, h2, h3, h4, h5, p, pre, table
     margin-left: 16px
     margin-right: 16px
-  p,pre
+  p, pre
     text-align: justify
   #byline
     font-weight: bold
@@ -101,3 +99,14 @@ header
     margin: 16px
     border: none
     background-color: #333
+  table
+    border: solid 1px #000
+    border-collapse: collapse
+  thead
+    border-bottom: solid 1px #000
+    background-color: #ddd
+  tr:nth-child(even)
+    background-color: #ddd
+  th, td
+    padding: 2px
+
