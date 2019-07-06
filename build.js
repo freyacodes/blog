@@ -103,7 +103,7 @@ function writeIndex() {
         if (a.time == null && b.time == null) return 0;
         else if (a.time == null) return 1;
         else if (b.time == null) return -1;
-        else return a.time.getMilliseconds() - b.time.getMilliseconds()
+        else return b.time.getTime() - a.time.getTime()
     });
 
     const $ = cheerio.load(baseSrc);
