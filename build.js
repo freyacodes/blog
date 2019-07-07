@@ -123,7 +123,6 @@ function writeIndex() {
 }
 
 function formatDate(date) {
-    return luxon.DateTime.fromJSDate(date)
-        .setZone()
+    return luxon.DateTime.fromJSDate(date, {zone: "Europe/Copenhagen"})
         .toFormat("dd LLL yyyy");
 }
