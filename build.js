@@ -114,7 +114,7 @@ function writeIndex() {
 
     docs.forEach(props => {
         const dateStr = formatDate(props.time);
-        contentRoot.append(`<p><code>${dateStr}</code> &mdash; <a href="/docs/${props.relPath}">${props.title}</a></p>`)
+        contentRoot.append(`<p><code>${dateStr}</code> &mdash; <a href="/docs/${props.relPath.replace(".html", "")}">${props.title}</a></p>`)
     });
 
 
