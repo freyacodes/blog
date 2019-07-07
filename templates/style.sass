@@ -7,7 +7,7 @@
 @import "/normalize.css"
 $breakSmall: 700px
 $breakLarge: 1000px
-$maxPageWidth: 60em
+$maxPageWidth: 1050px
 $headerFamily: 'Roboto Slab', serif
 $headerHeight: 80px
 
@@ -34,8 +34,8 @@ h5
   font-size: 1.2em
   font-weight: normal
 p, a, table
-  margin: 8px 0 8px 0
-  font-size: 1.2em
+  margin: 16px 0 16px 0
+  font-size: 20px
 
 .column
   margin: 0 auto 0 auto
@@ -59,17 +59,18 @@ header
     max-width: 300px
   #header-right
     padding-right: 16px
-    font-size: 12px
     p
       margin: 6px 0 0 0
+      font-size: 12px
     ul
       margin: 4px 0 0 0
       padding-left: 32px
-    li
       font-size: 12px
+    li
       list-style-type: "—"
       a
         color: #000
+        font-size: 12px
   h1
     margin: 0
     a
@@ -87,7 +88,7 @@ header
   line-height: 1.5
 
   // Actual content
-  h1, h2, h3, h4, h5, p, pre, table
+  h1, h2, h3, h4, h5, p, pre
     margin-left: 16px
     margin-right: 16px
   p, pre
@@ -104,6 +105,7 @@ header
     border: solid 1px #000
     border-collapse: collapse
     margin: 0 auto 0 auto
+    max-width: calc(#{$maxPageWidth} - 64px)
   thead
     border-bottom: solid 1px #000
     background-color: #ddd
