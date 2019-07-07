@@ -1,6 +1,6 @@
 ```properties
 author: Frederik Mikkelsen
-time: 2019-07-01T18:29:04.280Z
+date: 2019-07-01T18:29:04.280Z
 ```
 
 # So I developed a blog

@@ -2,7 +2,7 @@
 
 ```properties
 author: Frederik Mikkelsen
-time: 2019-07-06T23:20:10.342Z
+date: 2019-07-06T23:20:10.342Z
 ```
 
 # The dangers of running a large Discord bot

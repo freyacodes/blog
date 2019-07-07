@@ -3,6 +3,18 @@
  * Licensed under MIT. See https://github.com/Frederikam/blog/blob/master/LICENSE
  */
 
+const prep = require('./prep.js');
+const assembler = require('./assembler.js');
+const util = require('./util.js');
+const fs = require('fs-extra');
+
+fs.removeSync(util.buildDir);
+fs.copySync(util.staticDir, util.buildDir);
+console.log("Cleaned build dir");
+
+assembler.writeDocs(prep.getDocuments());
+
+/*const util = require('util');
 const fs = require('fs-extra');
 const sass = require('node-sass');
 const marked = require('marked');
@@ -33,7 +45,6 @@ function writeStyle() {
     });
 
     fs.copySync("node_modules/normalize.css/normalize.css", buildDir + "normalize.css");
-    //fs.writeFileSync(buildDir + "style.css", styleResult.css);
     const $ = cheerio.load(baseSrc);
     $("#style").text(styleResult.css);
     baseSrc = $.html();
@@ -130,3 +141,4 @@ function formatDate(date) {
     return luxon.DateTime.fromJSDate(date, {zone: "Europe/Copenhagen"})
         .toFormat("dd LLL yyyy");
 }
+*/

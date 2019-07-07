@@ -1,6 +1,6 @@
 ```properties
 author: Frederik Mikkelsen
-time: 2019-07-01T15:43:59.945Z
+date: 2019-07-01T15:43:59.945Z
 ```
 
 # 5 paragraphs of Lorem Ipsum
