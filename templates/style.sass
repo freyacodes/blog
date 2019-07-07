@@ -33,7 +33,7 @@ h4
 h5
   font-size: 1.2em
   font-weight: normal
-p, a, table
+p, a, table, .index-button
   margin: 16px 0 16px 0
   font-size: 20px
 
@@ -114,3 +114,20 @@ header
   th, td
     padding: 8px
 
+.index
+  p
+    margin-top: 8px
+    margin-bottom: 8px
+  .index-item
+    font-weight: bold
+    margin-top: 16px
+    color: #444
+    a
+      margin: 0
+  .index-button.right
+    float: right
+  .index-button
+    display: inline-block
+  .index-button a
+    display: inline-block
+    color: inherit // Don't show if visited

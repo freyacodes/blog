@@ -36,10 +36,10 @@ exports.getDocuments = function() {
 
     // Sort the articles chronologically
     documents.sort((a, b) => {
-        if (a.time == null && b.time == null) return 0;
-        else if (a.time == null) return 1;
-        else if (b.time == null) return -1;
-        else return b.time.getTime() - a.time.getTime()
+        if (a.date == null && b.date == null) return 0;
+        else if (a.date == null) return 1;
+        else if (b.date == null) return -1;
+        else return b.date.getTime() - a.date.getTime()
     });
 
     return documents;
@@ -54,7 +54,8 @@ function processDocument(filename) {
         url: null,
         title: "Untitled",
         author: "unknown",
-        date: null
+        date: null,
+        description: ""
     };
 
     // Match the properties block

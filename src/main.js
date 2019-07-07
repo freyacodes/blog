@@ -12,7 +12,9 @@ fs.removeSync(util.buildDir);
 fs.copySync(util.staticDir, util.buildDir);
 console.log("Cleaned build dir");
 
-assembler.writeDocs(prep.getDocuments());
+const docs = prep.getDocuments();
+assembler.writeDocs(docs);
+assembler.writeIndex(docs);
 
 /*const util = require('util');
 const fs = require('fs-extra');
