@@ -16,6 +16,8 @@ body
   margin: 16px
   //noinspection CssInvalidPropertyValue
   overflow-y: overlay // Like auto, but without shifting the layout
+  -ms-overflow-style: -ms-autohiding-scrollbar
+  // See https://css-tricks.com/almanac/properties/s/scrollbar-gutter/
 h1, h2, h3, h4, h5
   font-family: $headerFamily
   margin: 16px 0 8px 0
@@ -46,8 +48,8 @@ header
   display: flex
   justify-content: space-between
   height: $headerHeight
-  padding: 8px
-  margin-top: 80px
+  padding: 24px
+  margin-top: 60px
   margin-bottom: 16px
   @media screen and (max-width: $breakLarge)
     margin-top: 60px
@@ -80,8 +82,8 @@ header
 
 .content
   background-color: #eee
-  min-height: calc(100vh - 224px)
-  padding: 8px 0 8px 0
+  min-height: calc(100vh - 256px)
+  padding: 16px
   line-height: 1.5
 
   // Actual content
