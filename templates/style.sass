@@ -5,84 +5,82 @@
 
 //noinspection CssUnknownTarget
 @import "/normalize.css"
-$breakLarge: 1100px
-$sidebarWidth: 250px
-$maxPageWith: calc(250px + 50em)
-$headerFamily: 'Roboto Slab', sans-serif
+$breakSmall: 700px
+$breakLarge: 1000px
+$maxPageWidth: 60em
+$headerFamily: 'Roboto Slab', serif
+$headerHeight: 80px
 
 body
   font-family: sans-serif
   margin: 16px
-h1
-  font-size: 30px
 h1, h2, h3, h4, h5
   font-family: $headerFamily
   margin: 16px 0 8px 0
+  line-height: 1.3
+h1
+  font-size: 2em
+h2
+  font-size: 1.6em
 h3
-  font-size: 22px
+  font-size: 1.4em
 h4
-  font-size: 20px
+  font-size: 1.2em
 h5
-  font-size: 20px
+  font-size: 1.2em
   font-weight: normal
 p, a, table
   margin: 8px 0 8px 0
-  font-size: 18px
-header
-  display: block
-  background-color: #eee
-  width: $sidebarWidth
-  @media screen and (max-width: $breakLarge)
-    margin-bottom: 8px
-  a
-    display: block
-    width: calc(100% - 16px)
-    text-align: center
-    padding: 8px
-    margin: 0
-    font-family: $headerFamily
-    font-size: 32px
-    color: #000
-    text-decoration: none
+  font-size: 1.2em
+
 .column
   margin: 0 auto 0 auto
-  max-width: $maxPageWith
-  .inner-column
-    display: flex
-    justify-content: center
-    align-items: flex-start
-    max-width: $maxPageWith
-    section
-      height: 100%
-.sidebar
-  width: 250px
-  margin-top: 64px
-  font-size: 14px
+  max-width: $maxPageWidth
+  @media screen and (max-width: $breakSmall)
+    width: calc(100vw - 40px)
+    min-width: unset
+
+header
+  display: flex
+  justify-content: space-between
+  height: $headerHeight
+  padding: 8px
+  margin-top: 80px
+  margin-bottom: 16px
   @media screen and (max-width: $breakLarge)
-    display: none
-  p
-    margin: 8px
-  img
-    width: 148px
-    height: 174px
-    margin: 32px 0 8px 44px
-    background-color: #2A7BC5
-    border: solid #2A7BC5 6px
-    border-radius: 6px
-  .separator
-    height: 1px
-    margin: 8px 20px 8px 8px
-    background-color: #333
+    margin-top: 60px
+  @media screen and (max-width: $breakSmall)
+    margin-top: 40px
+  #header-left
+    max-width: 300px
+  #header-right
+    padding-right: 16px
+    font-size: 12px
+    p
+      margin: 6px 0 0 0
+    ul
+      margin: 4px 0 0 0
+      padding-left: 32px
+    li
+      font-size: 12px
+      list-style-type: "—"
+      a
+        color: #000
+  h1
+    margin: 0
+    a
+      padding: 8px
+      font-family: $headerFamily
+      font-size: 32px
+      font-weight: normal
+      color: #000
+      text-decoration: none
 
 .content
-  min-width: 40em
-  width: 50em
   background-color: #eee
   min-height: 80vh
-  padding-bottom: 8px
-  @media screen and (max-width: $breakLarge)
-    width: 100vw
-    min-width: unset
+  padding: 8px 0 8px 0
+  line-height: 1.5
 
   // Actual content
   h1, h2, h3, h4, h5, p, pre, table
@@ -92,7 +90,6 @@ header
     text-align: justify
   #byline
     font-weight: bold
-    font-style:
     color: #444
   hr
     height: 1px
@@ -108,5 +105,5 @@ header
   tr:nth-child(even)
     background-color: #ddd
   th, td
-    padding: 2px
+    padding: 8px
 
