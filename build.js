@@ -93,7 +93,7 @@ function injectByline($, properties) {
         return;
     }
 
-    const timeStr = luxon.DateTime.fromJSDate(properties.time).toFormat("dd LLL yyyy");
+    const timeStr = formatDate(properties.time);
     const byline = `<p id="byline">By ${properties.author}, ${timeStr}</p>`;
     title.after($(byline));
 }
@@ -113,11 +113,17 @@ function writeIndex() {
     contentRoot.append('<p>The latest articles:</p>');
 
     docs.forEach(props => {
-        const dateStr = luxon.DateTime.fromJSDate(props.time).toFormat("dd LLL yyyy");
+        const dateStr = formatDate(props.time);
         contentRoot.append(`<p><code>${dateStr}</code> &mdash; <a href="/docs/${props.relPath}">${props.title}</a></p>`)
     });
 
 
     fs.writeFileSync(buildDir + "index.html", $.html());
     console.log("Wrote index");
+}
+
+function formatDate(date) {
+    return luxon.DateTime.fromJSDate(date)
+        .setZone()
+        .toFormat("dd LLL yyyy");
 }
