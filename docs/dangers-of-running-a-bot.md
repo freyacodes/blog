@@ -21,13 +21,13 @@ As of this writing, FredBoat maintains 1248 WebSocket connections from different
 
 There are some serious problems with outages like this, as recreating these connections is severely rate-limited. All bots are subject to a 5 second backoff period after authenticating a connection. In theory that means that if these connections are severed, it in theory takes 6235 seconds (104 minutes) to fully recover. In practice, this duration is longer. This is somewhat rare, but one recent week was particularly frustrating:
 
-| Time                 | Cause                                                        |
-| -------------------- | ------------------------------------------------------------ |
-| June 22nd 12:20 CEST | Planned router maintenance of my host‘s routers              |
-| June 24th 14:00 CEST | Verizon BGP screwup caused Cloudflare to go down             |
-| June 28th 7:50 CEST  | My host‘s redundant core routers stop working due to a firmware problem |
-| June 28th 23:10 CEST | Cloudflare BGP screwup causing port flapping (twice)         |
-| June 29th 2:30 CEST  | Discord token reset                                          |
+| Time (CEST)     | Cause                                                        |
+| --------------- | ------------------------------------------------------------ |
+| June 22nd 12:20 | Planned router maintenance of my host‘s routers              |
+| June 24th 14:00 | Verizon BGP screwup caused Cloudflare to go down             |
+| June 28th 7:50  | My host‘s redundant core routers stop working due to a firmware problem |
+| June 28th 23:10 | Cloudflare BGP screwup causing port flapping (twice)         |
+| June 29th 2:30  | Discord token reset                                          |
 
 These incidents are mostly out of my control. In spite of these outages, my host‘s network is usually relatively robust.
 
