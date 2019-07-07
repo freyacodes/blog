@@ -15,8 +15,9 @@ const templateBase = "./templates/base.html";
 const staticDir = "./static/";
 const sassFile = "./templates/style.sass";
 const docsDir = "./docs/";
-const baseSrc = fs.readFileSync(templateBase);
 const docs = [];
+
+let baseSrc = fs.readFileSync(templateBase);
 
 fs.removeSync(buildDir);
 fs.copySync(staticDir, buildDir);
@@ -32,7 +33,10 @@ function writeStyle() {
     });
 
     fs.copySync("node_modules/normalize.css/normalize.css", buildDir + "normalize.css");
-    fs.writeFileSync(buildDir + "style.css", styleResult.css);
+    //fs.writeFileSync(buildDir + "style.css", styleResult.css);
+    const $ = cheerio.load(baseSrc);
+    $("#style").text(styleResult.css);
+    baseSrc = $.html();
     console.log("Compiled CSS")
 
 }
