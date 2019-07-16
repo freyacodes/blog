@@ -46,8 +46,13 @@ function injectByline($, document) {
         return;
     }
 
-    const timeStr = util.formatDate(document.date);
-    const byline = `<p id="byline">By ${document.author}, ${timeStr}</p>`;
+    let byline;
+    if (document.draft) {
+        byline = "<p id=\"byline\">This is an unindexed draft.</p>"
+    } else {
+        const timeStr = util.formatDate(document.date);
+        byline = `<p id="byline">By ${document.author}, ${timeStr}</p>`;
+    }
     title.after($(byline));
 }
 
