@@ -19,14 +19,13 @@ I would not consider it a problem that AwesomeWM is an X11 window manager rather
 
 The fundamental thing that would set my compositor apart from awesome and way-cooler is that mine would rely on Kotlin for configuration. More specifically, I will be using a flavor of Kotlin called “Kotlin/Native” that compiles to a native binary. It is not unheard of to use a compiled language for a window manager or compositor.
 
-I have yet to figure out a proper name for it. For now I am using the codename “kaiju”, which roughly means „strange beast“ in Japanese and fits with its frankly quite strange design. Kotlin libraries usually have a name starting with 'K'.
+I have yet to figure out a proper name for it. For now I am using the codename “kaiju”, which roughly means ”strange beast“ in Japanese and fits with its frankly quite strange design. Kotlin libraries usually have a name starting with 'K'.
 
 Kotlin is normally used as a language for the JVM (Java Virtual Machine), and is basically like Java without many of its shortcomings. Here is a list of reasons why I think Kotlin would make a great configuration language:
 
 ### The good
 
-* Kotlin has many features that allows for type-safe domain specific languages (DSLs). Its higher order functions and custom function receivers allows for an intuitive builder pattern. For instance:
-
+Example kotlin code:
 ```kotlin
 // Use the Compositor type as the receiver for this function
 fun Compositor.configure() {
@@ -48,10 +47,8 @@ fun Compositor.configure() {
 }
 ```
 
-
-
+* Kotlin has many features that allows for type-safe domain specific languages (DSLs). Its higher order functions and custom function receivers allows for an intuitive builder pattern.
 * Like Lua, Kotlin is very extensible. Where Lua uses dynamic “meta tables” to define extensions on a per-object basis, Kotlin offers operator overloading functions resolved at compile-time. In the above example, `CTRL` and `SHIFT` can be of a class that has a custom `plus()` operator.
-
 * Not everything has to be in a class. The configuration entry point can just be a function like in the above example.
 * Excellent IDE integration that would never work with a dynamic language. Development becomes much easier when you can read the documentation in the context of your code.
 * Even though K/N may not be very optimized, we may still be able to expect a level of performance where graphics rendering directly from Kotlin becomes feasible.
@@ -70,7 +67,7 @@ As mentioned, the compositor will be based off of [wlroots](https://github.com/s
 
 ### The core
 
-The core is an executable and the only part written in C. It will expose an API via its headers which the bridge will link to. The core will also be responsible for loading and reloading the bridge at runtime with `dlfcn.h`. This is sort of like a „thick“ but opinionated wrapper.
+The core is an executable and the only part written in C. It will expose an API via its headers which the bridge will link to. The core will also be responsible for loading and reloading the bridge at runtime with `dlfcn.h`. This is sort of like a “thick” but opinionated wrapper.
 
 ### The bridge
 
