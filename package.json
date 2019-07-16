@@ -9,7 +9,8 @@
     "luxon": "^1.16.0",
     "marked": "^0.6.3",
     "node-sass": "^4.12.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "highlight.js": "^9.15.8"
   },
   "scripts": {
     "start": "node src/main.js",

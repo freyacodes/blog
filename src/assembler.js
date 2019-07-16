@@ -9,7 +9,15 @@ const prep = require('./prep.js');
 const fs = require('fs-extra');
 const cheerio = require('cheerio');
 const marked = require('marked');
+const hljs = require("highlight.js");
 const docsPerIndexPage = 6;
+
+marked.setOptions({
+    highlight: function (code, lang) {
+        if (lang === "properties") return null;
+        return hljs.highlight(lang, code, true, false).value;
+    }
+});
 
 exports.writeDocs = function (documents) {
     documents.forEach(writeDoc);
