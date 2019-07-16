@@ -14,7 +14,9 @@ console.log("Cleaned build dir");
 
 const docs = prep.getDocuments();
 assembler.writeDocs(docs);
-assembler.writeIndex(docs);
+
+const docsNoDrafts = docs.filter(it => !it.draft);
+assembler.writeIndex(docsNoDrafts);
 
 /*const util = require('util');
 const fs = require('fs-extra');

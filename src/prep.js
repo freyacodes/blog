@@ -55,6 +55,7 @@ function processDocument(filename) {
         title: "Untitled",
         author: "unknown",
         date: null,
+        draft: false,
         description: ""
     };
 
@@ -66,12 +67,21 @@ function processDocument(filename) {
             if (groups !== null) props[groups[1]] = groups[2].trim();
         });
 
-        if (props.date !== null) {
-            props.date = new Date(props.date);
-            props.outDir = `${util.buildDir + props.date.getUTCFullYear()}/${props.date.getUTCMonth() + 1}/`;
+        if (props.date !== null) { props.date = new Date(props.date); }
+
+        // noinspection JSUnresolvedFunction
+        props.draft = props.draft === "true"
+            || props.date === null
+            || isNaN(props.date.getYear())
+            || props.author === "unknown";
+
+        if (props.draft) {
+            props.outDir = `${util.buildDir}/draft/`;
         } else {
-            props.outDir = `${util.buildDir}/undated/`;
+            // noinspection JSObjectNullOrUndefined
+            props.outDir = `${util.buildDir + props.date.getUTCFullYear()}/${props.date.getUTCMonth() + 1}/`;
         }
+
         props.outPath = props.outDir + filename.replace(".md", ".html");
         props.url = props.outPath.replace(util.buildDir, "/");
     }
