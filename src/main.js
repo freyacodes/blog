@@ -6,6 +6,7 @@
 const prep = require('./prep.js');
 const assembler = require('./assembler.js');
 const util = require('./util.js');
+const feed = require('./feed.js');
 const fs = require('fs-extra');
 
 fs.removeSync(util.buildDir);
@@ -17,3 +18,5 @@ assembler.writeDocs(docs);
 
 const docsNoDrafts = docs.filter(it => !it.draft);
 assembler.writeIndex(docsNoDrafts);
+
+feed.buildFeed(docsNoDrafts.slice(0, 4));

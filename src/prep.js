@@ -54,6 +54,7 @@ function processDocument(filename) {
         url: null,
         title: "Untitled",
         author: "unknown",
+        authorUrl: null,
         date: null,
         draft: false,
         description: ""
