@@ -33,6 +33,7 @@ function writeDoc(document) {
     $(".language-properties").parent().remove();
     document.description = $("#page-content p:first-of-type").text();
     injectByline($, document);
+    injectHeadMetadata($, document);
     fs.mkdirsSync(document.outDir);
     fs.writeFileSync(document.outPath, $.html());
 
@@ -54,6 +55,20 @@ function injectByline($, document) {
         byline = `<p id="byline">By ${document.author}, ${timeStr}</p>`;
     }
     title.after($(byline));
+}
+
+function injectHeadMetadata($, doc) {
+    const head = $("head");
+
+    head.append($(`<meta property="og:image" content="/avatar.png"/>`));
+    head.append($(`<meta property="og:site_name" content="Fred's notes"/>`));
+
+    head.append($(`<meta property="og:title" content="${doc.title}"/>`));
+    head.append($(`<meta property="og:type" content="article" />`));
+    head.append($(`<meta property="og:title" content="${doc.title}"/>`));
+
+    head.append($(`<meta property="article:published_time" content="${doc.date.toISOString()}"/>`));
+    head.append($(`<meta property="article:author" content="${doc.author}"/>`));
 }
 
 
