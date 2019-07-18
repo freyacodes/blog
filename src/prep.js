@@ -84,7 +84,7 @@ function processDocument(filename) {
         }
 
         props.outPath = props.outDir + filename.replace(".md", ".html");
-        props.url = props.outPath.replace(util.buildDir, "/");
+        props.url = props.outPath.replace(util.buildDir, "/").replace(".html", "");
     }
 
     let titleMatch = props.markdown.match(titleRegex);
