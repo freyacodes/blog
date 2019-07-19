@@ -49,12 +49,20 @@ function injectByline($, document) {
 
     let byline;
     if (document.draft) {
-        byline = "<p id=\"byline\">This is an unindexed draft.</p>"
+        byline = `<p id="draft-notice">This is an unindexed draft.</p>`
     } else {
         const timeStr = util.formatDate(document.date);
-        byline = `<p id="byline">By ${document.author}, ${timeStr}</p>`;
+        byline = `
+<div class="byline">
+    <img class="byline-avatar" src="${document.authorAvatar}" alt=""/>
+    <div class="byline-right">
+        <p class="byline-author">${document.author}</p>
+        <p class="byline-published">${timeStr}</p>
+    </div>
+</div>`;
     }
     title.after($(byline));
+    title.after($(`<div class="byline-separator"></div>`));
 }
 
 function injectHeadMetadata($, doc) {
@@ -93,13 +101,13 @@ function writeIndexPage(sublist, pageNum, isLast) {
     });
 
     if (pageNum !== 1) {
-        let url = `/archive/${pageNum-1}`;
+        let url = `/archive/${pageNum - 1}`;
         if (pageNum === 2) url = "/";
-        $.append(`<div class="index-button left">« <a href="${url}">Page ${pageNum-1}</a></div>`)
+        $.append(`<div class="index-button left">« <a href="${url}">Page ${pageNum - 1}</a></div>`)
     }
     if (!isLast) {
-        const url = `/archive/${pageNum+1}`;
-        $.append(`<div class="index-button right"><a href="${url}">Page ${pageNum+1}</a> »</div>`)
+        const url = `/archive/${pageNum + 1}`;
+        $.append(`<div class="index-button right"><a href="${url}">Page ${pageNum + 1}</a> »</div>`)
     }
 
     let path = pageNum === 1 ? "index.html" : `archive/${pageNum}.html`;

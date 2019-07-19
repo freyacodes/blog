@@ -89,14 +89,14 @@ header
   line-height: 1.5
 
   // Actual content
-  h1, h2, h3, h4, h5, p, ol, ul
+  h1, h2, h3, h4, h5, p, ol, ul, img
     margin-left: 32px
     margin-right: 32px
   ol, ul
     padding-left: 24px
   p, pre
     text-align: justify
-  #byline
+  .draft-notice
     font-weight: bold
     color: #444
   hr
@@ -125,6 +125,32 @@ header
     border-radius: 3px
     background-color: #333
     color: white
+  .byline-separator
+    display: block
+    max-width: 128px
+    height: 8px
+    margin: 16px 32px 8px 32px
+    background-color: #2a7bc5
+  .byline
+    display: flex
+    height: 64px
+    align-items: center
+    .byline-avatar
+      margin-right: 12px
+      margin-left: 32px
+      width: 64px
+      height: 64px
+      border-radius: 50%
+      filter: grayscale(100%) contrast(400%) brightness(93%)
+    .byline-right
+      display: flex
+      height: 32px
+      flex-direction: column
+      justify-content: center
+      p
+        margin: 0 32px 0 0
+        font-size: 14px
+
 .index
   p
     margin-top: 8px
