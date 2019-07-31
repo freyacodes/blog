@@ -21,6 +21,7 @@ body
   // See https://css-tricks.com/almanac/properties/s/scrollbar-gutter/
   @media screen and (max-width: $breakPhone)
     margin: 0
+    overflow-x: hidden // Todo: Maybe browsers will add better support for hiding the scrollers
 h1, h2, h3, h4, h5
   font-family: $headerFamily
   margin: 16px 0 8px 0
@@ -98,6 +99,13 @@ header
     justify-content: center
     margin: 0
 
+.content > *
+  margin-left: 32px
+  margin-right: 32px
+  @media screen and (max-width: $breakSmall)
+    margin-left: 16px
+    margin-right: 16px
+
 .content
   background-color: #eee
   min-height: calc(100vh - 256px)
@@ -105,9 +113,6 @@ header
   line-height: 1.5
 
   // Actual content
-  h1, h2, h3, h4, h5, p, ol, ul, img
-    margin-left: 32px
-    margin-right: 32px
   ol, ul
     padding-left: 24px
   p, pre
@@ -137,6 +142,8 @@ header
     background-color: #333
     color: white
     overflow-x: auto
+    @media screen and (max-width: $breakPhone)
+      padding: 16px
   code
     padding: 2px 8px
     border-radius: 3px
@@ -146,7 +153,8 @@ header
     display: block
     max-width: 128px
     height: 8px
-    margin: 16px 32px 8px 32px
+    margin-top: 16px
+    margin-bottom: 8px
     background-color: #2a7bc5
   .byline
     display: flex
@@ -154,7 +162,6 @@ header
     align-items: center
     .byline-avatar
       margin-right: 12px
-      margin-left: 32px
       width: 64px
       height: 64px
       border-radius: 50%
