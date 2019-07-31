@@ -5,6 +5,7 @@
 
 //noinspection CssUnknownTarget
 @import "/normalize.css"
+$breakPhone: 550px
 $breakSmall: 700px
 $breakLarge: 1000px
 $maxPageWidth: 1050px
@@ -18,6 +19,8 @@ body
   overflow-y: overlay // Like auto, but without shifting the layout
   -ms-overflow-style: -ms-autohiding-scrollbar
   // See https://css-tricks.com/almanac/properties/s/scrollbar-gutter/
+  @media screen and (max-width: $breakPhone)
+    margin: 0
 h1, h2, h3, h4, h5
   font-family: $headerFamily
   margin: 16px 0 8px 0
@@ -37,6 +40,8 @@ p, a, table, .index-button
   margin: 16px 0 16px 0
 p, a, table, .index-button, ul, ol
   font-size: 20px
+  @media screen and (max-width: $breakPhone)
+    font-size: 16px
 
 .column
   margin: 0 auto 0 auto
@@ -44,6 +49,9 @@ p, a, table, .index-button, ul, ol
   @media screen and (max-width: $breakSmall)
     width: calc(100vw - 40px)
     min-width: unset
+  @media screen and (max-width: $breakPhone)
+    margin: 0
+    width: 100vw
 
 header
   display: flex
@@ -72,6 +80,8 @@ header
       a
         color: #000
         font-size: 12px
+    @media screen and (max-width: $breakPhone)
+      display: none
   h1
     margin: 0
     a
@@ -81,6 +91,12 @@ header
       font-weight: normal
       color: #000
       text-decoration: none
+  @media screen and (max-width: $breakPhone)
+    // Put the title alone in the center
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 0
 
 .content
   background-color: #eee
@@ -120,6 +136,7 @@ header
     padding: 32px
     background-color: #333
     color: white
+    overflow-x: auto
   code
     padding: 2px 8px
     border-radius: 3px
