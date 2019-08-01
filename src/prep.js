@@ -15,7 +15,7 @@ const titleRegex = /^#(.+)/m;
 let baseSrc = null;
 let documents = null;
 
-exports.getBaseSource = function() {
+exports.getBaseSource = function () {
     if (baseSrc !== null) return baseSrc;
     baseSrc = fs.readFileSync(util.templateBase);
     const styleResult = sass.renderSync({
@@ -30,7 +30,7 @@ exports.getBaseSource = function() {
     return baseSrc;
 };
 
-exports.getDocuments = function() {
+exports.getDocuments = function () {
     if (documents !== null) return documents;
     documents = fs.readdirSync(util.docsDir).map(processDocument);
 
@@ -68,25 +68,27 @@ function processDocument(filename) {
             const groups = value.match(propertyRegex);
             if (groups !== null) props[groups[1]] = groups[2].trim();
         });
-
-        if (props.date !== null) { props.date = new Date(props.date); }
-
-        // noinspection JSUnresolvedFunction
-        props.draft = props.draft === "true"
-            || props.date === null
-            || isNaN(props.date.getYear())
-            || props.author === "unknown";
-
-        if (props.draft) {
-            props.outDir = `${util.buildDir}/draft/`;
-        } else {
-            // noinspection JSObjectNullOrUndefined
-            props.outDir = `${util.buildDir + props.date.getUTCFullYear()}/${props.date.getUTCMonth() + 1}/`;
-        }
-
-        props.outPath = props.outDir + filename.replace(".md", ".html");
-        props.url = props.outPath.replace(util.buildDir, "/").replace(".html", "");
     }
+
+    if (props.date !== null) {
+        props.date = new Date(props.date);
+    }
+
+    // noinspection JSUnresolvedFunction
+    props.draft = props.draft === "true"
+        || props.date === null
+        || isNaN(props.date.getYear())
+        || props.author === "unknown";
+
+    if (props.draft) {
+        props.outDir = `${util.buildDir}draft/`;
+    } else {
+        // noinspection JSObjectNullOrUndefined
+        props.outDir = `${util.buildDir + props.date.getUTCFullYear()}/${props.date.getUTCMonth() + 1}/`;
+    }
+
+    props.outPath = props.outDir + filename.replace(".md", ".html");
+    props.url = props.outPath.replace(util.buildDir, "/").replace(".html", "");
 
     let titleMatch = props.markdown.match(titleRegex);
     if (titleMatch !== null && titleMatch.length >= 2) {

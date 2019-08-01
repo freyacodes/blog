@@ -73,7 +73,8 @@ function injectHeadMetadata($, doc) {
     head.append($(`<meta property="og:title" content="${doc.title}"/>`));
     head.append($(`<meta property="og:description" content="${doc.description}"/>`));
 
-    head.append($(`<meta property="article:published_time" content="${doc.date.toISOString()}"/>`));
+    if (doc.date !== null)
+        head.append($(`<meta property="article:published_time" content="${doc.date.toISOString()}"/>`));
     head.append($(`<meta property="article:author" content="${doc.author}"/>`));
 }
 
