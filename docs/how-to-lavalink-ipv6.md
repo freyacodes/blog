@@ -19,9 +19,11 @@ This brief tutorial explains how to set Lavalink to use many random IPv6 address
 Lavalink (and the general internet) uses individual /64 blocks to connect to execute HTTP requests. If you have a /64 block you technically have $2^{64}$ IP addresses, with only one of them usable. If one gets ratelimited, they all do. This is not useful for us.
 
 Let $m$ be your mask length. You could use this formula to calculate the actual number of IPs you can use:
+
 $$
 2^{64-m}
 $$
+
 How many you need is up to you to determine.
 
 ## Assigning your IPs to your network interface
