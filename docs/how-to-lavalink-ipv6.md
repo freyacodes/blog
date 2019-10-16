@@ -83,7 +83,7 @@ lavalink:
     balancingBlock: "beef:beef:beef:b200::/56"
 
     # List of IPs in the block to exclude. Useful if your gateway is a member of the same block.
-    #excludedIps: ["beef:beef:beef:b200::"]
+    excludedIps: ["beef:beef:beef:b200::"]
 ```
 
 If you use Docker make sure your use `network_mode: host` to properly expose your interface configuration to your container.
