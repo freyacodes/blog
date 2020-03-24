@@ -33,7 +33,7 @@ Next you will need to configure your network system. This diverges a lot dependi
 * You need to somehow make sure the following command is run after your interface is otherwise configured:
 
 ```bash
-ip -6 route add local YOUR_48_BLOCK dev lo
+ip -6 route replace local YOUR_48_BLOCK dev lo
 ```
 
 
@@ -51,7 +51,12 @@ ping6 google.com
 ping6 -I 1234:1234:1234:: google.com
 ping6 -I 1234:1234:1234::1 google.com
 ping6 -I 1234:1234:1234:dead::beef google.com
+
+# Make sure your /48 block appears when running this command
+ip -6 route
 ```
+
+
 
 ## How to configure Lavalink to use IPv6 balancing
 
@@ -72,3 +77,40 @@ You can read more about the different strategies in [ROUTEPLANNERS.md](https://g
 ### When using docker
 
 If you use Docker, you will need to set your network mode to "host". This will let your container use the network as if it was not in a container.
+
+
+
+## Troubleshooting
+
+### Ubuntu: Editing `/etc/network/interfaces` on a Netplan system
+
+Don't edit `/etc/network/interfaces` if your system relies on a `/etc/netplan/` configuration. See the Netplan example on the Tunnelbroker website.
+
+
+
+### Using the /64 block instead of the /48 block
+
+Make sure the /64 block is not being used in your config. You must replace it in the examples that Tunnelbroker provides.
+
+
+
+### Lavalink: Connect timed out
+
+You probably haven't configured your routes properly. See the “Test your configuration” section.
+
+
+
+### Lavalink: Cannot assign requested address (Bind failed)
+
+ You did not enable `net.ipv6.ip_nonlocal_bind` as described above.
+
+
+
+### “Help, I've tried everything!”
+
+If you've followed this entire guide and you have a problem not listed here, you are welcome to contact me. Please provide the following info:
+
+* Which distro you are on
+* The network config you wrote based on one of the Tunnelbroker examples
+* A screenshot of the Tunnelbroker website with your tunnel details
+* The output of `ip -6 routes`
