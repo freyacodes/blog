@@ -65,7 +65,7 @@ This is the easy part. Add the ratelimit block to your config:
 ```yaml
 lavalink:
   server:
-  	# ...
+    # ...
     ratelimit:
       ipBlocks: ["1234:1234:1234::/48"]
       strategy: "LoadBalance"
