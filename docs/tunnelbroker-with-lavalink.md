@@ -113,4 +113,4 @@ If you've followed this entire guide and you have a problem not listed here, you
 * Which distro you are on
 * The network config you wrote based on one of the Tunnelbroker examples
 * A screenshot of the Tunnelbroker website with your tunnel details
-* The output of `ip -6 routes`
+* The output of `ip -6 route`
