@@ -102,9 +102,10 @@ You probably haven't configured your routes properly. See the “Test your confi
 
 ### Lavalink: Cannot assign requested address (Bind failed)
 
- You did not enable `net.ipv6.ip_nonlocal_bind` as described above.
+You did not enable `net.ipv6.ip_nonlocal_bind` as described above.
 
-
+### Lavalink: Index out of bounds for the CombinedBlock
+You're using a nano strategy for a block larger than a /64 block. This doesn't work. The other strategies still pick out random values for the last 64 bits, so there would be no point anywaysIndex out of bounds for the CombinedBlock.
 
 ### “Help, I've tried everything!”
 
