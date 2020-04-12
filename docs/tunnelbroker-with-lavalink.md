@@ -1,13 +1,18 @@
 ```properties
 author: Frederik Mikkelsen
 date: 2020-03-24T10:12:22.708Z
+updated: 2020-04-12T10:39:36.049Z
 ```
 
 # Using Tunnelbroker to make Lavalink balance its requests over many IPv6 addresses
 
 When scraping metadata with Lavalink, it may be useful to have a large block of IPv6 addresses available. Allocating a large prefix of addresses to a machine can be difficult, as this is dependent on the configuration of the IP addresses, which is generally out of your control if you are renting a server.
 
-We can use the free Tunnelbroker service from Hurricane Electric to get a routed IPv6 prefix. This can also work if your server does not even have an IPv6 address to begin with.
+We can use the free Tunnelbroker service from Hurricane Electric to get a routed IPv6 prefix. This can also work if your server does not even have an IPv6 address to begin with. If you intend to use Tunnelbroker, bear in mind that it is a free service and it may break.
+
+## Please read the entire guide
+
+Several weeks later I am still being contacted by people who have trouble with this guide. Most people's problems are fixed by following the troubleshooting guide. I'm still happy to help if you've read this entire guide. 
 
 ## Acquiring a /48 block
 
@@ -86,19 +91,13 @@ If you use Docker, you will need to set your network mode to "host". This will l
 
 Don't edit `/etc/network/interfaces` if your system relies on a `/etc/netplan/` configuration. See the Netplan example on the Tunnelbroker website.
 
-
-
 ### Using the /64 block instead of the /48 block
 
 Make sure the /64 block is not being used in your config. You must replace it in the examples that Tunnelbroker provides.
 
-
-
 ### Lavalink: Connect timed out
 
 You probably haven't configured your routes properly. See the “Test your configuration” section.
-
-
 
 ### Lavalink: Cannot assign requested address (Bind failed)
 
@@ -106,6 +105,12 @@ You did not enable `net.ipv6.ip_nonlocal_bind` as described above.
 
 ### Lavalink: Index out of bounds for the CombinedBlock
 You're using a nano strategy for a block larger than a /64 block. This doesn't work. The other strategies still pick out random values for the last 64 bits, so there would be no point anywaysIndex out of bounds for the CombinedBlock.
+
+### Lavalink: Could not look up AAAA record for host. Falling back to unbalanced IPv4.
+
+You're running Lavalink in a docker container without [`host` as your network mode](https://docs.docker.com/network/host/). 
+
+If that isn't it, check your DNS config. Your DNS server is not returning IPv6 records for whatever reason.
 
 ### “Help, I've tried everything!”
 
