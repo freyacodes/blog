@@ -35,7 +35,7 @@ echo 'net.ipv6.ip_nonlocal_bind = 1' >> /etc/sysctl.conf
 Next you will need to configure your network system. This diverges a lot depending on your distribution. Hurricane Electric provides a lot of examples. Common for them all is that you need to take two extra steps:
 
 * Replace the /64 prefix with the /48 one you were allocated. The full CIDR notation, not just the bitmask 48.
-* You need to somehow make sure the following command is run after your interface is otherwise configured:
+* You need to somehow make sure the following command is run after your interface is otherwise configured. The block must end with /48.ip -6 route replace local YOUR_48_BLOCK dev lo
 
 ```bash
 ip -6 route replace local YOUR_48_BLOCK dev lo
@@ -120,3 +120,4 @@ If you've followed this entire guide and you have a problem not listed here, you
 * The network config you wrote based on one of the Tunnelbroker examples
 * A screenshot of the Tunnelbroker website with your tunnel details
 * The output of `ip -6 route`
+* Don't say “doesn't work”. Describe your problem in details
