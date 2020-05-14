@@ -33,6 +33,7 @@ function writeDoc(document) {
     $(".language-properties").parent().remove();
     document.description = $("#page-content p:first-of-type").text();
     injectByline($, document);
+    injectPilcrows($, document)
     injectHeadMetadata($, document);
     fs.mkdirsSync(document.outDir);
     fs.writeFileSync(document.outPath, $.html());
@@ -63,6 +64,12 @@ function injectByline($, document) {
     }
     title.after($(byline));
     title.after($(`<div class="byline-separator"></div>`));
+}
+
+function injectPilcrows($, document) {
+    $("#page-content > h2, h3, h4, h5").each((v, e) => {
+        $(e).append(`<a class="pilcrow" href="#${e.attribs.id}">¶</a>`)
+    })
 }
 
 function injectHeadMetadata($, doc) {
