@@ -35,6 +35,10 @@ function writeDoc(document) {
     injectByline($, document);
     injectPilcrows($, document)
     injectHeadMetadata($, document);
+
+    const githubUrl = "https://github.com/Frederikam/blog/tree/master" + document.inPath.substr(1)
+    $("#github-link").attr("href", githubUrl)
+
     fs.mkdirsSync(document.outDir);
     fs.writeFileSync(document.outPath, $.html());
 
@@ -100,6 +104,9 @@ exports.writeIndex = function (documents) {
 
 function writeIndexPage(sublist, pageNum, isLast) {
     const root = cheerio.load(prep.getBaseSource());
+
+    root("footer").remove() // This would normally include a GitHub link
+
     const $ = root("#page-content");
     $.addClass("index");
     $.append("<h1>Index</h1>");
