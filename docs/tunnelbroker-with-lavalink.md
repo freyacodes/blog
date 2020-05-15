@@ -112,6 +112,11 @@ You're running Lavalink in a docker container without [`host` as your network mo
 
 If that isn't it, check your DNS config. Your DNS server is not returning IPv6 records for whatever reason.
 
+### ifup: add tunnel "sit0" failed: No buffer space available
+I don't know what causes this. Please get in touch if you know the answer.
+
+This might help: https://askubuntu.com/questions/109709/hurricane-ipv6-buffer-space-error/272097
+
 ### “Help, I've tried everything!”
 
 If you've followed this entire guide and you have a problem not listed here, you are welcome to contact me. Please provide the following info:
