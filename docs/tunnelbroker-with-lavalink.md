@@ -121,3 +121,5 @@ If you've followed this entire guide and you have a problem not listed here, you
 * A screenshot of the Tunnelbroker website with your tunnel details
 * The output of `ip -6 route`
 * Don't say “doesn't work”. Describe your problem in details
+
+And please don't censor your IPs. It makes it harder for me to help, and I won't attack you.
