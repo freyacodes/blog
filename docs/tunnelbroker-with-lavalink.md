@@ -19,7 +19,7 @@ Several weeks later I am still being contacted by people who have trouble with t
 1. Register an account at https://tunnelbroker.net/
 2. Create a new (regular) tunnel
 3. Enter your IPv4 IP address and select a nearby region. Your IPv4 must be pingable.
-4. Request a new /48. We *could* use a /64, however a /64 is much more likely to be blocked.
+4. Request a new /48 by clicking **assign /48**. We *could* use a /64, however a /64 is much more likely to be blocked.
 
 ## Configuring your block
 
