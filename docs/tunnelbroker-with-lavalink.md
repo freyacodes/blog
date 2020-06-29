@@ -115,6 +115,20 @@ If that isn't it, check your DNS config. Your DNS server is not returning IPv6 r
 ### ifup: add tunnel "sit0" failed: No buffer space available
 According to duncte123, removing the `ttl` line in your `/etc/network/interfaces` file might help.
 
+The steps for that are as following:
+1. Run `sudo ip tun del he-ipv6`
+2. Comment out the `ttl` line in your `/etc/network/interfaces`
+3. Run `sudo ifup he-ipv6`, this command should run without errors
+4. Remove the comment in front of the `ttl` line in your `/etc/network/interfaces`
+5. Run `sudo systemctl restart networking`, this command should also run without any errors
+
+Why does that work?
+
+These steps work because Ubuntu does not like the `ttl` line for some reason, commenting the line out allows your server to initialize tunnel properly.
+You cannot leave the `ttl` line commented out because your requests will time out within lavalink if you do so.
+Once the tunnel is created on your system a final restart of the networking interface will also set the `ttl` on the tunnel and allows lavalink to actually work.
+
+
 This might also help: https://askubuntu.com/questions/109709/hurricane-ipv6-buffer-space-error/272097
 
 ### “Help, I've tried everything!”
