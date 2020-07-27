@@ -10,7 +10,7 @@ When scraping metadata with Lavalink, it may be useful to have a large block of 
 
 We can use the free Tunnelbroker service from Hurricane Electric to get a routed IPv6 prefix. This can also work if your server does not even have an IPv6 address to begin with. If you intend to use Tunnelbroker, bear in mind that it is a free service and it may break.
 
-**Important:** As always, be careful about making these changes to live production systems. You could mess up your network and be unable to access your server. Consider testing on a disposable VPS.
+**Important:** Always be careful about making changes to live production systems. Mistakes here could mess up your network and make you unable to access your server. Consider testing on a disposable VPS.
 
 ## Please read the entire guide
 
