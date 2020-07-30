@@ -85,8 +85,6 @@ You can read more about the different strategies in [ROUTEPLANNERS.md](https://g
 
 If you use Docker, you will need to set your network mode to "host". This will let your container use the network as if it was not in a container.
 
-
-
 ## Troubleshooting
 
 ### Ubuntu: Editing `/etc/network/interfaces` on a Netplan system
@@ -97,9 +95,11 @@ Don't edit `/etc/network/interfaces` if your system relies on a `/etc/netplan/` 
 
 Make sure the /64 block is not being used in your config. You must replace it in the examples that Tunnelbroker provides.
 
-### Lavalink: Connect timed out
+### Lavalink: Connect timed out (100% packet loss)
 
 You probably haven't configured your routes properly. See the “Test your configuration” section.
+
+It is also possible that you have an existing IPv6 configuration that is interfering with your tunnel. 
 
 ### Lavalink: Cannot assign requested address (Bind failed)
 
