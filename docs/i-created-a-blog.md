@@ -1,5 +1,5 @@
 ```properties
-author: Frederik Mikkelsen
+author: Freya Arbjerg
 date: 2019-07-01T18:29:04.280Z
 ```
 
@@ -25,4 +25,4 @@ A **fine level of control** lets me choose what I want to do with this site long
 
 The source code for this site is available on GitHub under the MIT license.
 
-https://github.com/frederikam/blog
+https://github.com/freyacodes/blog

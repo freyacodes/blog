@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2019 Frederik Ar. Mikkelsen
- * Licensed under MIT. See https://github.com/Frederikam/blog/blob/master/LICENSE
+ * Copyright (c) 2019 Freya Arbjerg
+ * Licensed under MIT. See https://github.com/freyacodes/blog/blob/master/LICENSE
  */
 
 const luxon = require("luxon");

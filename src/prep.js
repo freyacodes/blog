@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2019 Frederik Ar. Mikkelsen
- * Licensed under MIT. See https://github.com/Frederikam/blog/blob/master/LICENSE
+ * Copyright (c) 2019 Freya Arbjerg
+ * Licensed under MIT. See https://github.com/freyacodes/blog/blob/master/LICENSE
  */
 
 const util = require('./util.js');
@@ -54,7 +54,7 @@ function processDocument(filename) {
         url: null,
         title: "Untitled",
         author: "unknown",
-        authorAvatar: "/avatar-byline.png",
+        authorAvatar: "/avatar.png",
         authorUrl: null,
         date: null,
         draft: false,

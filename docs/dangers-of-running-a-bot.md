@@ -1,7 +1,7 @@
 
 
 ```properties
-author: Frederik Mikkelsen
+author: Freya Arbjerg
 date: 2019-07-06T23:20:10.342Z
 ```
 

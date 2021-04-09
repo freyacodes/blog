@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2019 Frederik Ar. Mikkelsen
- * Licensed under MIT. See https://github.com/Frederikam/blog/blob/master/LICENSE
+ * Copyright (c) 2019 Freya Arbjerg
+ * Licensed under MIT. See https://github.com/freyacodes/blog/blob/master/LICENSE
  */
 
 const util = require('./util.js');
@@ -36,7 +36,7 @@ function writeDoc(document) {
     injectPilcrows($, document)
     injectHeadMetadata($, document);
 
-    const githubUrl = "https://github.com/Frederikam/blog/tree/master" + document.inPath.substr(1)
+    const githubUrl = "https://github.com/freyacodes/blog/tree/master" + document.inPath.substr(1)
     $("#github-link").attr("href", githubUrl)
 
     fs.mkdirsSync(document.outDir);

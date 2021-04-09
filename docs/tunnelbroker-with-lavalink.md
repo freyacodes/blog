@@ -1,5 +1,5 @@
 ```properties
-author: Frederik Mikkelsen
+author: Freya Arbjerg
 date: 2020-03-24T10:12:22.708Z
 updated: 2020-04-12T10:39:36.049Z
 ```
@@ -79,7 +79,7 @@ lavalink:
       searchTriggersFail: true
 ```
 
-You can read more about the different strategies in [ROUTEPLANNERS.md](https://github.com/Frederikam/Lavalink/blob/master/ROUTEPLANNERS.md)
+You can read more about the different strategies in [ROUTEPLANNERS.md](https://github.com/freyacodes/Lavalink/blob/master/ROUTEPLANNERS.md)
 
 ### When using docker
 

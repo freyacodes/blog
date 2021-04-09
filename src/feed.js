@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2019 Frederik Ar. Mikkelsen
- * Licensed under MIT. See https://github.com/Frederikam/blog/blob/master/LICENSE
+ * Copyright (c) 2019 Freya Arbjerg
+ * Licensed under MIT. See https://github.com/freyacodes/blog/blob/master/LICENSE
  */
 
 const util = require('./util.js');
@@ -10,19 +10,19 @@ const Feed = require('feed').Feed;
 exports.buildFeed = function(docs) {
     const feed = new Feed({
         title: "Fred's notes",
-        description: "Frederik Mikkelsen's personal blog",
+        description: "Freya Arbjerg's personal blog",
         id: util.baseUrl,
         link: util.baseUrl,
         language: "en",
-        copyright: `Copyright Frederik Mikkelsen ${new Date().getUTCFullYear()}`,
-        generator: "https://github.com/frederikam/blog",
+        copyright: `Copyright Freya Arbjerg ${new Date().getUTCFullYear()}`,
+        generator: "https://github.com/freyacodes/blog",
         feedLinks: {
             atom: util.baseUrl + "atom",
             json: util.baseUrl + "json"
         },
         author: {
-            name: "Frederik Mikkelsen",
-            link: "https://frederikam.com"
+            name: "Freya Arbjerg",
+            link: "https://arbjerg.dev"
         }
     });
 
@@ -36,8 +36,8 @@ exports.buildFeed = function(docs) {
             date: d.date,
             author: {
                 author: d.author,
-                link: d.authorUrl !== null ? d.authorUrl : "https://frederikam.com",
-                email: "fred at frederikam dot com"
+                link: d.authorUrl !== null ? d.authorUrl : "https://arbjerg.dev",
+                email: "fred at freyacodes dot com"
             }
         })
     });
