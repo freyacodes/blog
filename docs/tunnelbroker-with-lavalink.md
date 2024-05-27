@@ -135,12 +135,13 @@ This might also help: https://askubuntu.com/questions/109709/hurricane-ipv6-buff
 
 ### “Help, I've tried everything!”
 
-If you've followed this entire guide and you have a problem not listed here, you are welcome to contact me. Please provide the following info:
+If you've followed this entire guide and you have a problem not listed here, please open an issue on the #help forum on the Lavalink Discord server. Please provide the following info:
 
-* Which distro you are on
-* The network config you wrote based on one of the Tunnelbroker examples
-* A screenshot of the Tunnelbroker website with your tunnel details
-* The output of `ip -6 route`
-* Don't say “doesn't work”. Describe your problem in details
+1. Which distro you are on
+2. The network config you wrote based on one of the Tunnelbroker examples
+3. A screenshot of the Tunnelbroker website with your tunnel details
+4. The output of `ip -6 route`
+5. Don't say “doesn't work”. Describe your problem in details
+6. A list of everything you have tried
 
-And please don't censor your IPs. It makes it harder for me to help, and I won't attack you.
+If you fail to get a response from the Lavalink community, feel free to bring the thread to my attention. I will refuse to help if you do not provide the information above.
