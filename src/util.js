@@ -10,7 +10,7 @@ exports.templateBase = "./templates/base.html";
 exports.staticDir = "./static/";
 exports.sassFile = "./templates/style.sass";
 exports.docsDir = "./docs/";
-exports.baseUrl = "https://ramblings.fred.moe/";
+exports.baseUrl = "https://blog.arbjerg.dev/";
 
 exports.formatDate = function(date) {
     return luxon.DateTime.fromJSDate(date, {zone: "Europe/Copenhagen"})

@@ -9,7 +9,7 @@ const Feed = require('feed').Feed;
 
 exports.buildFeed = function(docs) {
     const feed = new Feed({
-        title: "Fred's notes",
+        title: "Freya's notes",
         description: "Freya Arbjerg's personal blog",
         id: util.baseUrl,
         link: util.baseUrl,
@@ -37,7 +37,7 @@ exports.buildFeed = function(docs) {
             author: {
                 author: d.author,
                 link: d.authorUrl !== null ? d.authorUrl : "https://arbjerg.dev",
-                email: "fred at freyacodes dot com"
+                email: "freya at freyacodes dot com"
             }
         })
     });
